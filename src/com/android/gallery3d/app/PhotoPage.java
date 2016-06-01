@@ -1021,6 +1021,7 @@ public abstract class PhotoPage extends ActivityState implements
     @Override
     protected void onBackPressed() {
         showBars();
+        ((GalleryActivity)mActivity).toggleNavBar(true);
         if (mShowDetails) {
             hideDetails();
         } else if (mAppBridge == null || !switchWithCaptureAnimation(-1)) {
@@ -1039,10 +1040,7 @@ public abstract class PhotoPage extends ActivityState implements
                 mActionBar.setBackGroundDefault();
                 int count = mActivity.getStateManager().getStateCount();
                 if (mIsFromVideoScreen || count == 1 || mIsFromTimelineScreen) {
-                    mActivity.getToolbar().setNavigationContentDescription(
-                            "drawer");
-                    mActivity.getToolbar().setNavigationIcon(R.drawable.drawer);
-                    ((GalleryActivity)mActivity).toggleNavDrawer(true);
+                    ((GalleryActivity)mActivity).toggleNavBar(true);
                     if (mModel instanceof PhotoDataAdapter) {
                         ((PhotoDataAdapter) mModel).setDataListener(null);
                     }
@@ -1663,12 +1661,11 @@ public abstract class PhotoPage extends ActivityState implements
         }
 
         mActionBar.setDisplayOptions(
-                ((mSecureAlbum == null) && (mSetPathString != null)), true);
+                (false && (mSetPathString != null)), true);
         mActionBar.addOnMenuVisibilityListener(mMenuVisibilityListener);
         refreshBottomControlsWhenReady();
         if (((mSecureAlbum == null) && (mSetPathString != null))) {
-            mActivity.getToolbar().setNavigationContentDescription("back");
-            mActivity.getToolbar().setNavigationIcon(R.drawable.back);
+            ((GalleryActivity)mActivity).toggleNavBar(false);
         }
         // if (mShowSpinner && mPhotoView.getFilmMode()) {
         // mActionBar.enableAlbumModeMenu(
