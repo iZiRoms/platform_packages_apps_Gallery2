@@ -237,4 +237,7 @@
     <dimen name="toolbar_exit_padding_left">16dp</dimen>
 
     <dimen name="watermark_default_size">75dp</dimen>
+
+    <dimen name="action_bar_elevation">4dp</dimen>
+
 </resources>

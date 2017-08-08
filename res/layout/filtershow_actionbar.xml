@@ -34,10 +34,10 @@
         android:id="@+id/filtershow_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:layout_marginEnd="13dp"
-        android:textSize="17sp"
+        android:background="?android:attr/selectableItemBackground"
+        android:textSize="14sp"
         android:text="@string/save"
+        android:drawablePadding="8dip"
         android:textAllCaps="true"
         android:layout_gravity="center_vertical|right"
         android:textColor="@color/white" />
